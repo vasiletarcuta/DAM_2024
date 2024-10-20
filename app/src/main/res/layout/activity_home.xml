@@ -31,21 +31,23 @@
         android:id="@+id/textView7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="20px"
-        android:paddingTop="100px"
+        android:paddingTop="500px"
         android:text="Bună ziua!"
-        android:textSize="70px"
-        android:textStyle="bold" />
+        android:textSize="100px"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textAlignment="center"/>
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="20px"
         android:paddingTop="20px"
         android:paddingBottom="150px"
         android:text="Cu ce vă putem ajuta astăzi?"
-        android:textSize="45px" />
+        android:textSize="45px"
+        android:textAlignment="center"
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/bttnCardDeSanatate"

@@ -38,11 +38,14 @@ public class MainActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etParola = findViewById(R.id.etParola);
 
-//        bttnInregistrare.setOnClickListener(v -> {
-//            Intent intent = new Intent(MainActivity.this, Login.class);
-//            startActivity(intent);
-//        });
+        bttnInregistrare.setOnClickListener(view -> {
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
+        });
 
-
+        bttnConectare.setOnClickListener(view->{
+            Intent intent = new Intent(getApplicationContext(), Home.class);
+            startActivity(intent);
+        });
     }
 }

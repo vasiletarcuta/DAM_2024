@@ -1,5 +1,6 @@
 package com.example.carddesanatate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -42,9 +43,15 @@ public class Login extends AppCompatActivity {
         etEmailInreg = findViewById(R.id.etEmailInreg);
         etParolaIntreg = findViewById(R.id.etParolaInreg);
         etConfirmaParolaInreg = findViewById(R.id.etConfirmaParolaInreg);
+        spnSex = findViewById(R.id.spnSex);
 
         String[] listaValori = {"MASCULIN", "FEMININ"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, listaValori);
         spnSex.setAdapter(adapter);
+
+        bttnCreareCont.setOnClickListener(view ->{
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        });
     }
 }

@@ -1,9 +1,14 @@
 package com.example.carddesanatate;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -33,5 +38,38 @@ public class Home extends AppCompatActivity {
         bttnIstoricAnalize = findViewById(R.id.bttnIstoricAnalize);
         bttnProgramari = findViewById(R.id.bttnProgramari);
 
+        bttnProgramari.setOnClickListener( view ->{
+            Intent intent = new Intent(getApplicationContext(), Programari_Activity.class);
+            startActivity(intent);
+        });
+
+        bttnIstoricAnalize.setOnClickListener( view ->{
+            Intent intent = new Intent(getApplicationContext(), IstoricAnalizeActivity.class);
+            startActivity(intent);
+        });
+
+        bttnVerificareCalitateAsigurat.setOnClickListener( view ->{
+            Intent intent = new Intent(getApplicationContext(), VerificareCalitateAsiguratActivity.class);
+            startActivity(intent);
+        });
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        menu.add(0, 1, 1, "Modificare date");
+        menu.add(0, 2, 2, "Vizualizare card de sanatate");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case 1: {
+                Toast.makeText(this, "Adauga telefon", Toast.LENGTH_SHORT).show();
+            }
+        }
+        return true;
     }
 }
