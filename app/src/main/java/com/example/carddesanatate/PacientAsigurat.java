@@ -18,5 +18,14 @@ public class PacientAsigurat extends Pacient{
         this.esteAsigurat = esteAsigurat;
     }
 
-
+    @Override
+    public String toString() {
+        return "PacientAsigurat{" +
+                "esteAsigurat=" + esteAsigurat +
+                ", nume='" + nume + '\'' +
+                ", Prenume='" + Prenume + '\'' +
+                ", CNP='" + CNP + '\'' +
+                ", Email='" + Email + '\'' +
+                '}';
+    }
 }

@@ -1,7 +1,5 @@
 package com.example.carddesanatate;
-
 import java.util.Date;
-
 public class Medic {
 
     int idMedic;
@@ -46,5 +44,15 @@ public class Medic {
 
     public void setSpitalDeProvenienta(String spitalDeProvenienta) {
         SpitalDeProvenienta = spitalDeProvenienta;
+    }
+
+    @Override
+    public String toString() {
+        return "Medic{" +
+                "idMedic=" + idMedic +
+                ", Nume='" + Nume + '\'' +
+                ", Prenume='" + Prenume + '\'' +
+                ", SpitalDeProvenienta='" + SpitalDeProvenienta + '\'' +
+                '}';
     }
 }

@@ -22,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <ListView
+        android:id="@+id/lsvProgramari"
         android:layout_width="match_parent"
         android:layout_height="849dp"
         tools:layout_editor_absoluteX="1dp"
@@ -30,7 +31,7 @@
     </ListView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/fabAdaugaProgramare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#1d174b"
@@ -38,5 +39,8 @@
         app:srcCompat="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:backgroundTint="#7D90F0"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

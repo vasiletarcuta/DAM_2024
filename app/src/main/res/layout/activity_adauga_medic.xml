@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdaugaMedicActivity">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adaugă Medic"
+        android:textSize="80px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="20px"
+        android:paddingBottom="20px"
+        android:background="#1d174b"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/etNumeMedic"
+        android:layout_width="324dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        android:hint="Nume Medic"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:layout_editor_absoluteX="43dp"
+        android:layout_marginTop="120dp"/>
+
+    <EditText
+        android:id="@+id/etPrenumeMedic"
+        android:layout_width="324dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Prenume Medic"
+        android:text=""
+        app:layout_constraintTop_toBottomOf="@+id/etNumeMedic"
+        tools:layout_editor_absoluteX="43dp"
+        android:layout_marginTop="30dp"/>
+
+    <EditText
+        android:id="@+id/etSpitalDeProvenienta"
+        android:layout_width="324dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Spital de Provenienta"
+        android:text=""
+        app:layout_constraintTop_toBottomOf="@+id/etPrenumeMedic"
+        tools:layout_editor_absoluteX="43dp"
+        android:layout_marginTop="30dp"/>
+
+    <Button
+        android:id="@+id/bttnAdaugaMedic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adaugă Medic"
+        android:backgroundTint="#1d174b"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/etSpitalDeProvenienta" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabScanareMedic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="150dp"
+        android:backgroundTint="#7D90F0"
+        app:layout_constraintTop_toBottomOf="@+id/bttnAdaugaMedic"
+        app:srcCompat="?attr/actionModeSelectAllDrawable" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SCANEAZĂ QR PENTRU ADĂUGARE MEDIC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="210dp"
+        android:textSize="40px"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/floatingActionButton" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

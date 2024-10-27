@@ -50,4 +50,14 @@ public class Pacient {
     public void setEmail(String email) {
         this.Email = email;
     }
+
+    @Override
+    public String toString() {
+        return "Pacient{" +
+                "nume='" + nume + '\'' +
+                ", Prenume='" + Prenume + '\'' +
+                ", CNP='" + CNP + '\'' +
+                ", Email='" + Email + '\'' +
+                '}';
+    }
 }

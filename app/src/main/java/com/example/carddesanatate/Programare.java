@@ -2,23 +2,21 @@ package com.example.carddesanatate;
 
 import android.icu.text.DateFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Programare {
+public class Programare implements Serializable {
     String CNPPacient;
     Date dataProgramarii;
     String oraProgramarii;
-
     String denumireSpital;
-    int idMedic;
     String numeMedic;
 
-    public Programare(String CNPPacient, Date dataProgramarii, String oraProgramarii, String denumireSpital, int idMedic, String numeMedic) {
+    public Programare(String CNPPacient, Date dataProgramarii, String oraProgramarii, String denumireSpital,  String numeMedic) {
         this.CNPPacient = CNPPacient;
         this.dataProgramarii = dataProgramarii;
         this.oraProgramarii = oraProgramarii;
         this.denumireSpital = denumireSpital;
-        this.idMedic = idMedic;
         this.numeMedic = numeMedic;
     }
 
@@ -54,19 +52,22 @@ public class Programare {
         this.denumireSpital = denumireSpital;
     }
 
-    public int getIdMedic() {
-        return idMedic;
-    }
-
-    public void setIdMedic(int idMedic) {
-        this.idMedic = idMedic;
-    }
-
     public String getNumeMedic() {
         return numeMedic;
     }
 
     public void setNumeMedic(String numeMedic) {
         this.numeMedic = numeMedic;
+    }
+
+    @Override
+    public String toString() {
+        return "Programare{" +
+                "CNPPacient='" + CNPPacient + '\'' +
+                ", dataProgramarii=" + dataProgramarii +
+                ", oraProgramarii='" + oraProgramarii + '\'' +
+                ", denumireSpital='" + denumireSpital + '\'' +
+                ", numeMedic='" + numeMedic + '\'' +
+                '}';
     }
 }

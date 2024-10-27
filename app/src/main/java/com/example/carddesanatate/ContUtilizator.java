@@ -25,6 +25,14 @@ public class ContUtilizator {
     public void setParola(String parola) {
         Parola = parola;
     }
+
+    @Override
+    public String toString() {
+        return "ContUtilizator{" +
+                "Email='" + Email + '\'' +
+                ", Parola='" + Parola + '\'' +
+                '}';
+    }
 }
 
 

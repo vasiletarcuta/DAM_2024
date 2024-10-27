@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdaugProgramareActivity">
+
+    <TextView
+        android:id="@+id/tvTitlu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adaugă Programare"
+        android:textSize="80px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="20px"
+        android:paddingBottom="20px"
+        android:background="#1d174b"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/etCNPPacient"
+        android:layout_width="357dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="150dp"
+        android:hint="CNP Pacient"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitlu" />
+
+    <EditText
+        android:id="@+id/etDataProgramarii"
+        android:layout_width="357dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:hint="Data Programării"
+        app:layout_constraintTop_toBottomOf="@+id/etCNPPacient" />
+
+    <EditText
+        android:id="@+id/etOraProgramarii"
+        android:layout_width="357dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:hint="Ora Programării"
+        app:layout_constraintTop_toBottomOf="@+id/etDataProgramarii" />
+
+    <EditText
+        android:id="@+id/etDenumireaSpital"
+        android:layout_width="357dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:hint="Denumire Spital"
+        app:layout_constraintTop_toBottomOf="@+id/etOraProgramarii" />
+
+    <EditText
+        android:id="@+id/etNumeMedic"
+        android:layout_width="357dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:hint="Nume Medic"
+        app:layout_constraintTop_toBottomOf="@+id/etDenumireaSpital" />
+
+    <Button
+        android:id="@+id/bttnAdaugareProgramare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adaugă Programare"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#1d174b"
+        app:layout_constraintTop_toBottomOf="@+id/etNumeMedic" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabScanareAdaugareProgramare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="140dp"
+        android:backgroundTint="#9DCFFD"
+        app:layout_constraintTop_toBottomOf="@+id/bttnAdaugareProgramare"
+        app:srcCompat="?attr/actionModeSelectAllDrawable" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SCANEAZĂ QR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="40px"
+        android:textColor="@color/black"
+        android:textSize="40px"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/fabScanareAdaugareProgramare" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
