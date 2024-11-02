@@ -40,7 +40,7 @@ public class AdaugProgramareActivity extends AppCompatActivity {
 
         bttnAdaugareProgramare.setOnClickListener(view -> {
             String cnpPacient = etCNPPacient.getText().toString();
-            String dataStr = etDataProgramarii.getText().toString();
+            String data = etDataProgramarii.getText().toString();
             String oraProgramarii = etOraProgramarii.getText().toString();
             String denumireSpital = etDenumireSpital.getText().toString();
             String numeMedic = etNumeMedic.getText().toString();
@@ -48,7 +48,7 @@ public class AdaugProgramareActivity extends AppCompatActivity {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Date dataProgramarii = null;
             try {
-                dataProgramarii = sdf.parse(dataStr);
+                dataProgramarii = sdf.parse(data);
             } catch (ParseException e) {
                 Toast.makeText(this, "Data introdusă nu este validă", Toast.LENGTH_SHORT).show();
                 return;

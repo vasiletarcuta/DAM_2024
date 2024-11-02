@@ -27,37 +27,40 @@
         android:id="@+id/etNumeMedic"
         android:layout_width="324dp"
         android:layout_height="46dp"
+        android:layout_marginTop="120dp"
         android:ems="10"
+        android:hint="Nume Medic"
         android:inputType="text"
         android:text=""
-        android:hint="Nume Medic"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:layout_editor_absoluteX="43dp"
-        android:layout_marginTop="120dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
         android:id="@+id/etPrenumeMedic"
         android:layout_width="324dp"
         android:layout_height="46dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
-        android:inputType="text"
         android:hint="Prenume Medic"
+        android:inputType="text"
         android:text=""
-        app:layout_constraintTop_toBottomOf="@+id/etNumeMedic"
-        tools:layout_editor_absoluteX="43dp"
-        android:layout_marginTop="30dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNumeMedic" />
 
     <EditText
         android:id="@+id/etSpitalDeProvenienta"
         android:layout_width="324dp"
         android:layout_height="46dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
-        android:inputType="text"
         android:hint="Spital de Provenienta"
+        android:inputType="text"
         android:text=""
-        app:layout_constraintTop_toBottomOf="@+id/etPrenumeMedic"
-        tools:layout_editor_absoluteX="43dp"
-        android:layout_marginTop="30dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPrenumeMedic" />
 
     <Button
         android:id="@+id/bttnAdaugaMedic"

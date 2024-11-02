@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvNumeAnalize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvSpital"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvNumePacient"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvPrenumePacient"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvCNP"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvMedic"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvSectie"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="TextView" />
+</LinearLayout>

@@ -45,7 +45,8 @@ public class IstoricAnalizeActivity extends AppCompatActivity {
                     Analize newAnaliza = (Analize) intent.getSerializableExtra("analizeFromIntent");
                     if (newAnaliza != null) {
                         analizeList.add(newAnaliza);
-                        ArrayAdapter<Analize> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, analizeList);
+                        //ArrayAdapter<Analize> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, analizeList);
+                        AnalizeAdapter adapter = new AnalizeAdapter(getApplicationContext(), R.layout.view_analize, analizeList, getLayoutInflater());
                         lsvAnalize.setAdapter(adapter);
                     }
                 }

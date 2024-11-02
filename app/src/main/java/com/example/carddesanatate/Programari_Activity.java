@@ -47,7 +47,8 @@ public class Programari_Activity extends AppCompatActivity {
                 if (programare != null) {
                     programari.add(programare);
                 }
-                ArrayAdapter<Programare> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, programari);
+                //ArrayAdapter<Programare> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, programari);
+                ProgramareAdapter adapter = new ProgramareAdapter(getApplicationContext(), R.layout.view_programare, programari, getLayoutInflater());
                 lvProgramari.setAdapter(adapter);
             }
         });
