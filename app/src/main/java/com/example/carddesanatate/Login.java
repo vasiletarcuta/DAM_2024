@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity {
         etConfirmaParolaInreg = findViewById(R.id.etConfirmaParolaInreg);
         spnSex = findViewById(R.id.spnSex);
 
-        String[] listaValori = {"MASCULIN", "FEMININ"};
+        String[] listaValori = {getString(R.string.masculin), getString(R.string.feminin)};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, listaValori);
         spnSex.setAdapter(adapter);
 

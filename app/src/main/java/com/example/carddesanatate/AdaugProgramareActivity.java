@@ -1,6 +1,7 @@
 package com.example.carddesanatate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import java.util.Date;
 
 public class AdaugProgramareActivity extends AppCompatActivity {
     private EditText etCNPPacient, etDataProgramarii, etOraProgramarii, etDenumireSpital, etNumeMedic;
+    private boolean isEditing = false;
     private Button bttnAdaugareProgramare;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,21 @@ public class AdaugProgramareActivity extends AppCompatActivity {
         etNumeMedic = findViewById(R.id.etNumeMedic);
         bttnAdaugareProgramare = findViewById(R.id.bttnAdaugareProgramare);
 
+        Intent editIntent = getIntent();
+        if (editIntent.hasExtra("editProgramari")) {
+            isEditing = true;
+            Programare programare = (Programare) editIntent.getSerializableExtra("editProgramari");
+            etCNPPacient.setText(programare.getCNPPacient());
+            etDataProgramarii.setText(new SimpleDateFormat("dd/MM/yyyy").format(programare.getDataProgramarii()));
+            etNumeMedic.setText(programare.getNumeMedic());
+            etOraProgramarii.setText(programare.getOraProgramarii());
+            etDenumireSpital.setText(programare.getDenumireSpital());
+        }
+
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.LOCAL), MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "Valoare default");
+        Toast.makeText(this, token, Toast.LENGTH_SHORT).show();
+
         bttnAdaugareProgramare.setOnClickListener(view -> {
             String cnpPacient = etCNPPacient.getText().toString();
             String data = etDataProgramarii.getText().toString();
@@ -56,7 +73,14 @@ public class AdaugProgramareActivity extends AppCompatActivity {
 
             Programare programare = new Programare(cnpPacient, dataProgramarii, oraProgramarii, denumireSpital, numeMedic);
             Intent intent = new Intent();
-            intent.putExtra("programareFromIntent", programare);
+
+            if (isEditing) {
+                intent.putExtra("editProgramari", programare);
+                isEditing = false;
+            } else {
+                intent.putExtra("programareFromIntent", programare);
+            }
+
             setResult(RESULT_OK, intent);
             finish();
         });
