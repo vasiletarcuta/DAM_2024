@@ -38,7 +38,7 @@ public class AdaugaMedicActivity extends AppCompatActivity {
         etPrenumeMedic = findViewById(R.id.etPrenumeMedic);
         etSpitalDeProvenienta = findViewById(R.id.etSpitalDeProvenienta);
 
-        Medic medic = new Medic(100, numeMedic, prenumeMedic, spitalDeProvenienta);
+        Medic medic = new Medic(numeMedic, prenumeMedic, spitalDeProvenienta, "CARDIOLOGIE");
 
         bttnAdaugaMedic.setOnClickListener(view-> {
             Toast.makeText(this, medic.toString(), Toast.LENGTH_SHORT).show();

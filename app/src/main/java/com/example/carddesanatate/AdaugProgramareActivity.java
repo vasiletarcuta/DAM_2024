@@ -71,7 +71,7 @@ public class AdaugProgramareActivity extends AppCompatActivity {
                 return;
             }
 
-            Programare programare = new Programare(cnpPacient, dataProgramarii, oraProgramarii, denumireSpital, numeMedic);
+            Programare programare = new Programare(1, 1,cnpPacient, dataProgramarii, oraProgramarii, denumireSpital, numeMedic);
             Intent intent = new Intent();
 
             if (isEditing) {

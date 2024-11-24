@@ -1,7 +1,13 @@
 package com.example.carddesanatate;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "pacienti")
 public class Pacient {
 
+    @PrimaryKey(autoGenerate = true)
+    private int idPacient; // Primary Key
     String nume;
     String Prenume;
 

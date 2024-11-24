@@ -43,12 +43,12 @@ public class ProgramareAdapter extends ArrayAdapter {
         TextView tvSpital = view.findViewById(R.id.tvSpital);
         TextView tvNumeMedic = view.findViewById(R.id.tvNumeMedic);
 
-        tvCNP.setText(programare.CNPPacient);
+        tvCNP.setText(programare.getCNPPacient());
         tvData.setText(new SimpleDateFormat("dd/MM/yyyy").format(programare.getDataProgramarii()));
         Date data = programare.getDataProgramarii();
-        tvOra.setText(programare.oraProgramarii);
-        tvSpital.setText(programare.denumireSpital);
-        tvNumeMedic.setText(programare.numeMedic);
+        tvOra.setText(programare.getOraProgramarii());
+        tvSpital.setText(programare.getDenumireSpital());
+        tvNumeMedic.setText(programare.getNumeMedic());
 
         tvSpital.setTypeface(tvNumeMedic.getTypeface(), Typeface.BOLD);
         tvSpital.setTextSize(17);

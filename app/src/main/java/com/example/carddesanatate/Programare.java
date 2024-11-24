@@ -2,22 +2,58 @@ package com.example.carddesanatate;
 
 import android.icu.text.DateFormat;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity(tableName = "programari")
 public class Programare implements Serializable {
-    String CNPPacient;
-    Date dataProgramarii;
-    String oraProgramarii;
-    String denumireSpital;
-    String numeMedic;
 
-    public Programare(String CNPPacient, Date dataProgramarii, String oraProgramarii, String denumireSpital,  String numeMedic) {
+    @PrimaryKey(autoGenerate = true)
+    private int idProgramare;
+
+    private int idPacient;
+    private int idMedic;
+    private String CNPPacient;
+    private Date dataProgramarii;
+    private String oraProgramarii;
+    private String denumireSpital;
+    private String numeMedic;
+
+    public Programare(int idPacient, int idMedic, String CNPPacient, Date dataProgramarii, String oraProgramarii, String denumireSpital, String numeMedic) {
+        this.idPacient = idPacient;
+        this.idMedic = idMedic;
         this.CNPPacient = CNPPacient;
         this.dataProgramarii = dataProgramarii;
         this.oraProgramarii = oraProgramarii;
         this.denumireSpital = denumireSpital;
         this.numeMedic = numeMedic;
+    }
+
+    public int getIdProgramare() {
+        return idProgramare;
+    }
+
+    public void setIdProgramare(int idProgramare) {
+        this.idProgramare = idProgramare;
+    }
+
+    public int getIdPacient() {
+        return idPacient;
+    }
+
+    public void setIdPacient(int idPacient) {
+        this.idPacient = idPacient;
+    }
+
+    public int getIdMedic() {
+        return idMedic;
+    }
+
+    public void setIdMedic(int idMedic) {
+        this.idMedic = idMedic;
     }
 
     public String getCNPPacient() {
@@ -63,7 +99,8 @@ public class Programare implements Serializable {
     @Override
     public String toString() {
         return "Programare{" +
-                "CNPPacient='" + CNPPacient + '\'' +
+                "idProgramare=" + idProgramare +
+                ", CNPPacient='" + CNPPacient + '\'' +
                 ", dataProgramarii=" + dataProgramarii +
                 ", oraProgramarii='" + oraProgramarii + '\'' +
                 ", denumireSpital='" + denumireSpital + '\'' +

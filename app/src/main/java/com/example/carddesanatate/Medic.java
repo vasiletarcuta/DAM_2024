@@ -1,25 +1,27 @@
 package com.example.carddesanatate;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.Date;
+@Entity(tableName = "medici")
 public class Medic {
 
-    int idMedic;
+    @PrimaryKey(autoGenerate = true)
+    private int idMedic;
     String Nume;
     String Prenume;
     String SpitalDeProvenienta;
+    String Specialziare;
 
-    public Medic(int idMedic, String nume, String prenume, String spitalDeProvenienta) {
-        this.idMedic = idMedic;
+    public Medic(String nume, String prenume, String spitalDeProvenienta, String specialziare) {
         Nume = nume;
         Prenume = prenume;
         SpitalDeProvenienta = spitalDeProvenienta;
+        Specialziare = specialziare;
     }
 
     public int getIdMedic() {
-        return idMedic;
-    }
-
-    public void setIdMedic(int idMedic) {
-        this.idMedic = idMedic;
+        return this.idMedic;
     }
 
     public String getNume() {

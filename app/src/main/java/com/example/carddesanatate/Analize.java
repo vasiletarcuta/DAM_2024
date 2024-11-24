@@ -1,25 +1,29 @@
 package com.example.carddesanatate;
 
-import android.media.Image;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
+@Entity(tableName = "analize")
 public class Analize implements Serializable {
 
-    int idAnalize;
-    String numeAnalize;
-    String denumireSpital;
-    String numePacient;
-    String prenumePacient;
-    String CNP;
-    String numeMedic;
-    String sectieSptial;
+    @PrimaryKey(autoGenerate = true)
+    private int idAnalize;
 
-    //poate un cod QR de scanat ca sa nu se mai adauge manual detaliile
+    private int idPacient;
+    private String numeAnalize;
+    private String denumireSpital;
+    private String numePacient;
+    private String prenumePacient;
+    private String CNP;
+    private String numeMedic;
+    private String sectieSptial;
 
+    // poate un cod QR de scanat ca sa nu se mai adauge manual detaliile
 
-    public Analize(int idAnalize, String numeAnalize, String denumireSpital, String numePacient, String prenumePacient, String CNP, String numeMedic, String sectieSptial) {
-        this.idAnalize = idAnalize;
+    public Analize(int idPacient, String numeAnalize, String denumireSpital, String numePacient, String prenumePacient, String CNP, String numeMedic, String sectieSptial) {
+        this.idPacient = idPacient;
         this.numeAnalize = numeAnalize;
         this.denumireSpital = denumireSpital;
         this.numePacient = numePacient;
@@ -29,12 +33,21 @@ public class Analize implements Serializable {
         this.sectieSptial = sectieSptial;
     }
 
+    // Getters și Setters
     public int getIdAnalize() {
         return idAnalize;
     }
 
     public void setIdAnalize(int idAnalize) {
         this.idAnalize = idAnalize;
+    }
+
+    public int getIdPacient() {
+        return idPacient;
+    }
+
+    public void setIdPacient(int idPacient) {
+        this.idPacient = idPacient;
     }
 
     public String getNumeAnalize() {

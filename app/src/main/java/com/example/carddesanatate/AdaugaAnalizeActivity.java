@@ -3,7 +3,6 @@ package com.example.carddesanatate;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,6 +17,8 @@ public class AdaugaAnalizeActivity extends AppCompatActivity {
 
     private EditText tvNume, tvSpital, tvNumePacient, tvPrenumePacient, tvCNP, tvMedic, tvSectie;
     private boolean isEditing = false;
+    private AnalizeDB db;
+    private Analize analizaExistenta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class AdaugaAnalizeActivity extends AppCompatActivity {
             return insets;
         });
 
+
         tvNume = findViewById(R.id.tvNume);
         tvSpital = findViewById(R.id.tvSpiral);
         tvNumePacient = findViewById(R.id.tvNumePacient);
@@ -39,20 +41,22 @@ public class AdaugaAnalizeActivity extends AppCompatActivity {
         tvSectie = findViewById(R.id.tvSectie);
         Button bttnAdaugareAnalize = findViewById(R.id.bttnAdaugareAnalize);
 
+
+        db = AnalizeDB.getInstance(getApplicationContext());
+
+
         Intent editIntent = getIntent();
         if (editIntent.hasExtra("edit")) {
             isEditing = true;
-            Analize analiza = (Analize) editIntent.getSerializableExtra("edit");
-            tvNume.setText(analiza.getNumeAnalize());
-            tvCNP.setText(analiza.getCNP());
-            tvMedic.setText(analiza.getNumeMedic());
-            tvSpital.setText(analiza.getDenumireSpital());
-            tvSectie.setText(analiza.getSectieSptial());
+            analizaExistenta = (Analize) editIntent.getSerializableExtra("edit");
+            if (analizaExistenta != null) {
+                tvNume.setText(analizaExistenta.getNumeAnalize());
+                tvCNP.setText(analizaExistenta.getCNP());
+                tvMedic.setText(analizaExistenta.getNumeMedic());
+                tvSpital.setText(analizaExistenta.getDenumireSpital());
+                tvSectie.setText(analizaExistenta.getSectieSptial());
+            }
         }
-
-        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.LOCAL), MODE_PRIVATE);
-        String token = sharedPreferences.getString("token", "Valoare default");
-        Toast.makeText(this, token, Toast.LENGTH_SHORT).show();
 
         bttnAdaugareAnalize.setOnClickListener(view -> {
 
@@ -67,19 +71,22 @@ public class AdaugaAnalizeActivity extends AppCompatActivity {
                     tvSectie.getText().toString()
             );
 
-            // Pass the new Analize object back to the IstoricAnalizeActivity
-            Intent intent = new Intent();
-            if (isEditing) {
-                intent.putExtra("edit", newAnaliza);
-                isEditing = false;
-            }
-            else {
-                intent.putExtra("analizaFromIntent", newAnaliza);
+            if (isEditing && analizaExistenta != null) {
+
+                newAnaliza.setIdAnalize(analizaExistenta.getIdAnalize());
+                db.getAnalizeDAO().updateAnalize(newAnaliza);
+                Toast.makeText(this, "Analiza actualizata cu succes!", Toast.LENGTH_SHORT).show();
+
+            } else {
+
+                db.getAnalizeDAO().insertAnalize(newAnaliza);
+                Toast.makeText(this, "Analiza adăugata cu succes!", Toast.LENGTH_SHORT).show();
+
             }
 
+            Intent intent = new Intent();
             setResult(RESULT_OK, intent);
             finish();
         });
-
     }
 }
