@@ -5,8 +5,10 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 @Database(entities = {Programare.class}, version = 1, exportSchema = false)
+@TypeConverters({Converters.class})
 public abstract class ProgramareDB extends RoomDatabase {
     private static ProgramareDB instance;
     private static final String DB_NAME = "programari.db";

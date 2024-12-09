@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/tvSpiral"
+        android:id="@+id/tvSpital"
         android:layout_width="313dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -61,7 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvSpiral" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSpital" />
 
     <EditText
         android:id="@+id/tvPrenumePacient"
@@ -149,6 +149,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:layout_marginTop="200dp"
+        android:contentDescription="fabScanareQR"
         app:layout_constraintBottom_toTopOf="@+id/tvScaneaza"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

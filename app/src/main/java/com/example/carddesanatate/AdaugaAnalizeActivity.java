@@ -1,7 +1,6 @@
 package com.example.carddesanatate;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,9 +30,8 @@ public class AdaugaAnalizeActivity extends AppCompatActivity {
             return insets;
         });
 
-
         tvNume = findViewById(R.id.tvNume);
-        tvSpital = findViewById(R.id.tvSpiral);
+        tvSpital = findViewById(R.id.tvSpital);
         tvNumePacient = findViewById(R.id.tvNumePacient);
         tvPrenumePacient = findViewById(R.id.tvPrenumePacient);
         tvCNP = findViewById(R.id.tvCNP);
@@ -41,9 +39,7 @@ public class AdaugaAnalizeActivity extends AppCompatActivity {
         tvSectie = findViewById(R.id.tvSectie);
         Button bttnAdaugareAnalize = findViewById(R.id.bttnAdaugareAnalize);
 
-
         db = AnalizeDB.getInstance(getApplicationContext());
-
 
         Intent editIntent = getIntent();
         if (editIntent.hasExtra("edit")) {
@@ -59,7 +55,6 @@ public class AdaugaAnalizeActivity extends AppCompatActivity {
         }
 
         bttnAdaugareAnalize.setOnClickListener(view -> {
-
             Analize newAnaliza = new Analize(
                     1000,
                     tvNume.getText().toString(),
@@ -72,16 +67,12 @@ public class AdaugaAnalizeActivity extends AppCompatActivity {
             );
 
             if (isEditing && analizaExistenta != null) {
-
                 newAnaliza.setIdAnalize(analizaExistenta.getIdAnalize());
                 db.getAnalizeDAO().updateAnalize(newAnaliza);
-                Toast.makeText(this, "Analiza actualizata cu succes!", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(this, "Analiza actualizată cu succes!", Toast.LENGTH_SHORT).show();
             } else {
-
                 db.getAnalizeDAO().insertAnalize(newAnaliza);
-                Toast.makeText(this, "Analiza adăugata cu succes!", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(this, "Analiza adăugată cu succes!", Toast.LENGTH_SHORT).show();
             }
 
             Intent intent = new Intent();

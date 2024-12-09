@@ -21,6 +21,7 @@ public class AdaugProgramareActivity extends AppCompatActivity {
     private EditText etCNPPacient, etDataProgramarii, etOraProgramarii, etDenumireSpital, etNumeMedic;
     private boolean isEditing = false;
     private Button bttnAdaugareProgramare;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +32,6 @@ public class AdaugProgramareActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
 
         etCNPPacient = findViewById(R.id.etCNPPacient);
         etDataProgramarii = findViewById(R.id.etDataProgramarii);
@@ -71,21 +71,20 @@ public class AdaugProgramareActivity extends AppCompatActivity {
                 return;
             }
 
-            Programare programare = new Programare(1, 1,cnpPacient, dataProgramarii, oraProgramarii, denumireSpital, numeMedic);
+            Programare programare = new Programare(1, 1, cnpPacient, dataProgramarii, oraProgramarii, denumireSpital, numeMedic);
             Intent intent = new Intent();
 
             if (isEditing) {
                 intent.putExtra("editProgramari", programare);
+                //ProgramareDB.getInstance(getApplicationContext()).getProgramareDAO().updateProgramare(programare);
                 isEditing = false;
             } else {
                 intent.putExtra("programareFromIntent", programare);
+                //ProgramareDB.getInstance(getApplicationContext()).getProgramareDAO().insertProgramare(programare);
             }
 
             setResult(RESULT_OK, intent);
             finish();
         });
-
-
-
     }
 }

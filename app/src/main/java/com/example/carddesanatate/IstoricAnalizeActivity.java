@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
@@ -25,6 +26,7 @@ public class IstoricAnalizeActivity extends AppCompatActivity {
     private List<Analize> analizeList = new ArrayList<>();
     private ActivityResultLauncher<Intent> launcher;
     private int position;
+    private AnalizeDB analizeDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class IstoricAnalizeActivity extends AppCompatActivity {
         });
 
         lsvAnalize = findViewById(R.id.lsvAnalize);
+        analizeDB = AnalizeDB.getInstance(getApplicationContext());
+        analizeList = analizeDB.getAnalizeDAO().getAllAnalize();
 
         lsvAnalize.setOnItemClickListener((adapterView, view, position, l) -> {
             this.position = position;
@@ -47,33 +51,33 @@ public class IstoricAnalizeActivity extends AppCompatActivity {
         });
 
         launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-            if (result.getData().hasExtra("analizaFromIntent")) {
-                Intent intent = result.getData();
-                if (intent != null) {
-                    Analize newAnaliza = (Analize) intent.getSerializableExtra("analizaFromIntent");
+            if (result.getData() != null) {
+                if (result.getData().hasExtra("analizaFromIntent")) {
+                    Analize newAnaliza = (Analize) result.getData().getSerializableExtra("analizaFromIntent");
                     if (newAnaliza != null) {
                         analizeList.add(newAnaliza);
-                    }
-                    //ArrayAdapter<Analize> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, analizeList);
-                    AnalizeAdapter adapter = new AnalizeAdapter(getApplicationContext(), R.layout.view_analize, analizeList, getLayoutInflater());
-                    lsvAnalize.setAdapter(adapter);
-                }
-            } else if (result.getData().hasExtra("edit")) {
-                    Intent intent = result.getData();
-                    Analize editedAnalize = (Analize) intent.getSerializableExtra("edit");
-                        if(editedAnalize!=null){
-                            Analize analiza = analizeList.get(position);
-
-                            analiza.setNumeAnalize(editedAnalize.getNumeAnalize());
-                            analiza.setCNP(editedAnalize.getCNP());
-                            analiza.setDenumireSpital(editedAnalize.getDenumireSpital());
-                            analiza.setNumeMedic(editedAnalize.getNumeMedic());
-                            analiza.setNumePacient(editedAnalize.getNumePacient());
-                            analiza.setPrenumePacient(editedAnalize.getPrenumePacient());
-                            analiza.setSectieSptial(editedAnalize.getSectieSptial());
-                            AnalizeAdapter adapter = (AnalizeAdapter) lsvAnalize.getAdapter();
+                        AnalizeAdapter adapter = (AnalizeAdapter) lsvAnalize.getAdapter();
+                        if (adapter != null) {
                             adapter.notifyDataSetChanged();
+                        }
                     }
+                } else if (result.getData().hasExtra("edit")) {
+                    Analize editedAnalize = (Analize) result.getData().getSerializableExtra("edit");
+                    if (editedAnalize != null) {
+                        Analize analiza = analizeList.get(position);
+                        analiza.setNumeAnalize(editedAnalize.getNumeAnalize());
+                        analiza.setCNP(editedAnalize.getCNP());
+                        analiza.setDenumireSpital(editedAnalize.getDenumireSpital());
+                        analiza.setNumeMedic(editedAnalize.getNumeMedic());
+                        analiza.setNumePacient(editedAnalize.getNumePacient());
+                        analiza.setPrenumePacient(editedAnalize.getPrenumePacient());
+                        analiza.setSectieSptial(editedAnalize.getSectieSptial());
+                        AnalizeAdapter adapter = (AnalizeAdapter) lsvAnalize.getAdapter();
+                        if (adapter != null) {
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
             }
         });
 
@@ -88,5 +92,8 @@ public class IstoricAnalizeActivity extends AppCompatActivity {
             launcher.launch(intent);
         });
 
+        AnalizeAdapter adapter = new AnalizeAdapter(getApplicationContext(), R.layout.view_analize, analizeList, getLayoutInflater());
+        lsvAnalize.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 }

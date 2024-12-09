@@ -8,6 +8,7 @@ import androidx.room.PrimaryKey;
 import java.io.Serializable;
 import java.util.Date;
 
+
 @Entity(tableName = "programari")
 public class Programare implements Serializable {
 
