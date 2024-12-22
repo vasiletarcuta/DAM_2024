@@ -7,22 +7,34 @@ import androidx.room.PrimaryKey;
 public class Pacient {
 
     @PrimaryKey(autoGenerate = true)
-    private int idPacient; // Primary Key
+    String idPacient; // Primary Key
     String nume;
     String Prenume;
-
     String CNP;
     String Email;
+    String parola;
+    Sex sex;
+
     enum Sex{
         MASCULIN,
         FEMININ
     }
 
-    public Pacient(String nume, String prenume, String CNP, String email) {
+    public Pacient(String nume, String prenume, String CNP, String email, String parola, String sex) {
+        this.sex = Sex.valueOf(sex);
+        Prenume = prenume;
+        this.parola = parola;
         this.nume = nume;
-        this.Prenume = prenume;
+        Email = email;
         this.CNP = CNP;
-        this.Email = email;
+    }
+
+    public String getId() {
+        return idPacient;
+    }
+
+    public void setId(String idPacient) {
+        this.idPacient = idPacient;
     }
 
     public String getNume() {

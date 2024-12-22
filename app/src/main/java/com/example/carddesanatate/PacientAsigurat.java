@@ -5,9 +5,9 @@ public class PacientAsigurat extends Pacient{
     Boolean esteAsigurat;
 
 
-    public PacientAsigurat(String nume, String prenume, String CNP, String email, Boolean esteAsigurat) {
-        super(nume, prenume, CNP, email);
-        this.esteAsigurat=esteAsigurat;
+    public PacientAsigurat(String nume, String prenume, String CNP, String email, String parola, String sex, Boolean esteAsigurat) {
+        super(nume, prenume, CNP, email, parola, sex);
+        this.esteAsigurat = esteAsigurat;
     }
 
     public Boolean getEsteAsigurat() {

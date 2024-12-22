@@ -19,7 +19,7 @@ public class Home extends AppCompatActivity {
     Button bttnCardDeSanatate;
     Button bttnVerificareCalitateAsigurat;
     Button bttnIstoricAnalize;
-    Button bttnProgramari;
+    Button bttnProgramari, medici;
 
 
     @Override
@@ -37,6 +37,7 @@ public class Home extends AppCompatActivity {
         bttnVerificareCalitateAsigurat = findViewById(R.id.bttnVerificareCalitateAsigurat);
         bttnIstoricAnalize = findViewById(R.id.bttnIstoricAnalize);
         bttnProgramari = findViewById(R.id.bttnProgramari);
+        medici = findViewById(R.id.bttnVizMedici);
 
         bttnProgramari.setOnClickListener( view ->{
             Intent intent = new Intent(getApplicationContext(), Programari_Activity.class);

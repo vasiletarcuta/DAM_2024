@@ -81,6 +81,14 @@
         android:backgroundTint="#1d174b"
         android:text="Programări" />
 
+    <Button
+        android:id="@+id/bttnVizMedici"
+        android:layout_width="202dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#1d174b"
+        android:text="Medici" />
+
 
   </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

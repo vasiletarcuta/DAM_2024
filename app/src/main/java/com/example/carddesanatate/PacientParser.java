@@ -36,6 +36,6 @@ public class PacientParser {
         String CNP = jsonObject.getString(CODNUMERICPERSONAL);
         String email = jsonObject.getString(EMAIL);
 
-        return new Pacient(nume, prenume, CNP, email);
+        return new Pacient(nume, prenume, CNP, email, String.valueOf(CNP.subSequence(CNP.length()-5, CNP.length()-1)), "FEMININ");
     }
 }

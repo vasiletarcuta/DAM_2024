@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "212535505227",
+    "project_id": "seminar11-50119",
+    "storage_bucket": "seminar11-50119.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212535505227:android:416a535f9328feee4938ce",
+        "android_client_info": {
+          "package_name": "com.example.carddesanatate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJjkUCQdL33nbVZCpviNRzrGd6bLd_7CM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

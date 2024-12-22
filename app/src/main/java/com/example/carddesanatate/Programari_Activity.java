@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -104,18 +105,19 @@ public class Programari_Activity extends AppCompatActivity {
     //nu inteleg de ce nu vrea sa mearga
 
 
-//    private void incarcareProgramariDinRetea() {
-//        Thread thread = new Thread() {
-//            @Override
-//            public void run() {
-//                HttpsManager manager = new HttpsManager(jsonUrlProgramare);
-//                String json = manager.procesare();
-//                runOnUiThread(() -> {
-//                    programari.addAll(ProgramareParser.parsareJson(json));
-//                    ArrayAdapter<Programare> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, programari);
-//                    lvProgramari.setAdapter(adapter);
-//                });
-//            }
-//        };
-//        thread.start();
+    private void incarcareProgramariDinRetea() {
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                HttpsManager manager = new HttpsManager(jsonUrlProgramare);
+                String json = manager.procesare();
+                new Handler(getMainLooper()).post(()->{
+                    programari.addAll(ProgramareParser.parsareJson(json));
+                    ArrayAdapter<Programare> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, programari);
+                    lvProgramari.setAdapter(adapter);
+                });
+            }
+        };
+        thread.start();
+    }
 }
